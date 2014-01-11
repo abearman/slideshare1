@@ -15,6 +15,12 @@ function ContentHandler (db) {
         });
     }
 
+    this.displaySS = function(req, res, next) {
+        "use strict";
+        console.log("Rendering ss");
+        res.render('ss');
+    }
+
     this.addPhoto = function(req, res, next) {
         "use strict";
 

@@ -42,6 +42,7 @@
         document.getElementById(divID).style.top = "100px";
         document.getElementById(divID).style.display = "block";
         document.getElementById(divID).innerHTML = text;
+
       }
 
       function closePopOver(divID) {
@@ -69,11 +70,12 @@
             Pop-over content
         </div>
         <div><a href="javascript:closePopOver('pop1');">Close</a></div>
+        <div><a href="/ss"> View </a>
 
         <div id="workspace">
             <div class="upload-prompt" id="upload-field">
                 <div id="upload-field-inner">
-                Drag in photos<br />
+                Drag in photos <br />
                 or
                 <div id="upload-button-container">
                     <input type="filepicker" data-fp-button-class="upload-button" data-fp-button-text="upload" data-fp-apikey="ANJlpHksZSrqWDRC0FtL9z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-maxsize="26214400" data-fp-services="COMPUTER,FACEBOOK" onchange="addToDatabase(event.fpfile.url)">

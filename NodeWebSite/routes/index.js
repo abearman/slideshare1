@@ -9,5 +9,7 @@ module.exports = exports = function(app, db) {
     app.get('/', contentHandler.displayMainPage);
     app.post('/', contentHandler.addPhoto);
     
+    app.get('/ss', contentHandler.displaySS);
+
     app.use(ErrorHandler);
 }
