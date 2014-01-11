@@ -28,6 +28,15 @@ font-family: 'Permanent Marker', cursive;
 font-size: 40pt;
 }
 
+.popover {
+   position:absolute;
+   display:none;
+   z-index: 2;
+   height: 150px;
+   width: 300px;
+   background-color: #eaeaea;
+}
+
 #publish-button {
 float: right;
 margin: 12px;

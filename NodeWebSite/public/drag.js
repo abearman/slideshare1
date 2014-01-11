@@ -43,9 +43,29 @@ function main() {
        return false; 
    };
 
+   function addToDatabase(url) {
+        console.log(url);
+        var method = "post";
+        var path = "/";
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", 'name');
+        hiddenField.value = url;
+        form.appendChild(hiddenField);
+        console.log(hiddenField);
+        console.log(form);
+        document.body.appendChild(form);
+        form.submit();
+    }
+
    workspace.ondrop = function(e) {
        e.preventDefault();
        readfiles(e.dataTransfer.files);
+       addToDatabase(e);
    };
    window.setInterval(timer,50);
 }

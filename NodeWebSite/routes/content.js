@@ -9,6 +9,7 @@ function ContentHandler (db) {
 
     this.displayMainPage = function(req, res, next) {
         "use strict";
+        console.log("main page");
         res.render('landing_page', {
             title: 'blog homepage',
         });

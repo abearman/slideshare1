@@ -7,8 +7,8 @@
 
         <script type="text/javascript" src="http://api.filepicker.io/v1/filepicker.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="jquery.autosize.min.js"></script>
-        <script src="drag.js"></script>
+        <!--<script type="text/javascript" src="jquery.autosize.min.js"></script>-->
+        <script src="drag.js"></script> 
 
     <script type="text/javascript"> 
 
@@ -34,6 +34,21 @@
         document.body.appendChild(form);
         form.submit();
       }
+
+      function showPopOver(divID, text) {
+        console.log("popover called");
+        console.log(text);
+        document.getElementById(divID).style.left = "200px";
+        document.getElementById(divID).style.top = "100px";
+        document.getElementById(divID).style.display = "block";
+        document.getElementById(divID).innerHTML = text;
+      }
+
+      function closePopOver(divID) {
+        console.log("close Pop-over called");
+        document.getElementById(divID).style.display = "none";
+      }
+
     </script>
 
     </head>
@@ -47,6 +62,13 @@
             <div style="clear: both;"></div> <!-- NECESSARY -->
             <div id="publish-button">Publish</div>
         </div>
+
+        <div style="margin-top: 100px"><a href="javascript:showPopOver('pop1', publish());"><b> Publish </b> </a></div>
+
+        <div id="pop1" class="popover" align="center">
+            Pop-over content
+        </div>
+        <div><a href="javascript:closePopOver('pop1');">Close</a></div>
 
         <div id="workspace">
             <div class="upload-prompt" id="upload-field">
@@ -67,7 +89,7 @@
 
             <div class="canvas-wrapper">
                 <div id="canvas" class="canvas">
-                    <div class="image-wrapper"><img class="focus-image" src="http://imfunny.net/wp-content/uploads/2013/05/Meanwhile-funny-England.jpg"></div>
+                    <div class="image-wrapper"><!--<img class="focus-image" src="http://imfunny.net/wp-content/uploads/2013/05/Meanwhile-funny-England.jpg">--></div>
                 </div>
             </div>
             <div id="caption-wrapper">
@@ -82,6 +104,20 @@
                 </div>
             {% endfor %}
         </div>
+
+        <script type="text/javascript">
+            function publish() {
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                for (var i = 0; i < 10; i++) {
+                    text += possible.charAt(Math.floor(Math.random() * possible.length));
+                }
+                console.log(text);
+                return "View your Slideshare at: slideshare.com/" + text;
+            }
+            //var publishButton = document.getElementById("publish-button");
+            //publishButton.onclick = publish;
+        </script>
 
     </body>
 
