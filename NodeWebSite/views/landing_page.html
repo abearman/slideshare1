@@ -51,6 +51,14 @@
         document.getElementById(divID).style.display = "none";
       }
 
+      function main() {
+        pub_button = getElementById("publish-button");
+        pub_button.onclick = showPopOver('pop1', publish());
+      }
+
+      window.onload = main;
+
+
     </script>
 
     </head>
@@ -60,12 +68,10 @@
         <div id="header">
             <div id="header-inner-wrapper">
                 <span id="name">SlideShare</span>.com/ <!--TODO put textbox here ONLY in editor-->
+                <div id="publish-button" style="cursor: pointer;"><a href="javascript:showPopOver('pop1', publish());" style="color: black; text-decoration: none;">Publish</a></div>
             </div>
-            <div style="clear: both;"></div> <!-- NECESSARY -->
-            <div id="publish-button">Publish</div>
-        </div>
 
-        <div style="margin-top: 100px"><a href="javascript:showPopOver('pop1', publish());"><b> Publish </b> </a></div>
+        </div>
 
         <div id="pop1" class="popover" align="center">
             Pop-over content
