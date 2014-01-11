@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <link href='http://fonts.googleapis.com/css?family=Permanent+Marker|News+Cycle|Roboto:400,300,500' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css" />
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <title>SlideShare - Simple online photo album sharing</title>
+
+        <script src="drag.js"></script>
+        <script type="text/javascript" src="http://api.filepicker.io/v1/filepicker.js">
+        </script>
+
+    <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+  </head>
+
+  <body>
+ 
+      <!-- Nav bar -->
+      <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid" style="line-height:50px">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/" style="color:white; font-family: 'Permanent Marker', cursive; font-size: 40pt";>Slideshare</a>
+          
+        </div>
+      </div>
+    </div>
+
+    {% for car in mycars %}
+
+      <div>
+        <img src={{car['URL']}} width="100" height="100" />
+      </div>
+  
+    {% endfor %}
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript"> 
+      function addToDatabase(url) {
+        console.log(url);
+        var method = "post";
+        var path = "/";
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", 'name');
+        hiddenField.value = url;
+        form.appendChild(hiddenField);
+        console.log(hiddenField);
+        console.log(form);
+        document.body.appendChild(form);
+        form.submit();
+      }
+    </script>
+
+    <div id="controls" style="margin-top: 100px;">
+            <button id="prev_button">Prev Slide</button>
+            <button id="next_button">Next Slide</button>
+            <textarea id="caption">Text here</textarea>
+        </div>
+
+        <div id="workspace">
+            <div class="upload-prompt" id="upload-field">
+                Drag in photos<br />
+                or
+                <div id="upload-button-container">
+                    <input type="filepicker" data-fp-apikey="ANJlpHksZSrqWDRC0FtL9z" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-maxsize="26214400" data-fp-services="COMPUTER,FACEBOOK" onchange="addToDatabase(event.fpfile.url)">
+                    <div id="upload-button">upload</div>
+                </div>
+            </div>
+
+            <div id="canvas" class="canvas">
+            </div>
+
+        </div>
+
+        <div id="thumbnail_bar">
+        </div>
+
+
+  </body>
+</html>
