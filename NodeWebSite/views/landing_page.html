@@ -11,6 +11,7 @@
         <script src="drag.js"></script> 
 
     <script type="text/javascript"> 
+        var urlString;
 
     /* $(document).ready(function(){
         $('textarea').autosize();   
@@ -115,7 +116,8 @@
                     text += possible.charAt(Math.floor(Math.random() * possible.length));
                 }
                 console.log(text);
-                return "View your Slideshare at: slideshare.com/" + text;
+                urlString = text;
+                return "View your Slideshare at www.slideshare.com/" + text;
             }
             //var publishButton = document.getElementById("publish-button");
             //publishButton.onclick = publish;

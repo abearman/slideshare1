@@ -65,7 +65,7 @@ function main() {
    workspace.ondrop = function(e) {
        e.preventDefault();
        readfiles(e.dataTransfer.files);
-       addToDatabase(e);
+       //addToDatabase(e);
    };
    window.setInterval(timer,50);
 }
