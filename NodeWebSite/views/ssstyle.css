@@ -65,8 +65,8 @@ body {
 #caption-wrapper {
 	position: absolute;
 	bottom: 10px;
-	width: 80%;
-	left: 10%;
+	width: 76%;
+	left: 12%;
 }
 
 #caption {
@@ -80,6 +80,7 @@ body {
 	padding: 5px;
 	width: 100%;
 	margin: 0 auto;
+    text-align: center;
 }
 
 button[id=prev_button], button[id="next_button"] {
